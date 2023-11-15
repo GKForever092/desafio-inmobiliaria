@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades Alquiler</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/alquiler.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/53d01a06c5.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <nav>
+        <h2>Inmobiliaria ADL</h2>
+        <a href="./index.html"><h3>Inicio</h3></a>
+        <a href="./propiedades_venta.html"><h3>En venta</h3></a>
+    </nav>
+
+    <h2>Propiedades en alquiler</h2>
+
+    <div class="card-container-alquiler">
+        
+    </div>
+
+
+
+    <script>
+
+    const propalquiler = document.querySelector(".card-container-alquiler")
+
+    const propalquiler1 = [
+            {
+                nombre: ["Apartamento en el centro de la ciudad", "Apartamento luminoso con vista al mar", "Condominio moderno en zona residencial"],
+                src: ["https://www.hogares.cl/wp-content/uploads/2019/08/proy4.jpg", "https://www.hogares.cl/wp-content/uploads/2019/08/proy4.jpg", "https://www.hogares.cl/wp-content/uploads/2019/08/proy4.jpg"],
+                descripcion: ["Este apartamento de 2 habitaciones está ubicado en el corazón de la ciudad, cerca de todo", "Este hermoso apartamento ofrece una vista impresionante al mar", "Este elegante condominio moderno está ubicado en una tranquila zona residencial"],
+                ubicacion: ["123 Main Street, Anytown, CA 91234", "456 Ocean Avenue, Seaside Town, CA 56789", "123 Main Street, Anytown, CA 91234"],
+                habitaciones: [2, 3, 2],
+                baños: [2, 3, 2],
+                costo: [2000, 2500, 2200],
+                smoke: [false, true, false, true],
+                pets: [true, true, false, false]
+            }
+        ]
+
+        for (let itemsal of propalquiler1){
+            let mostrarFumar = "";
+            let mostrarMascota = "";
+
+            if (itemsal.smoke) {
+                mostrarFumar = '<p class="text-success"><i class="fa-solid fa-smoking"></i> No se permite fumar</p>';
+            }
+            else {
+                mostrarFumar = '<p class="text-danger"><i class="fa-solid fa-smoking"></i> No se permite fumar</p>';
+            }
+
+            if (itemsal.pets) {
+                mostrarMascota = '<p class="text-success"><i class="fas fa-paw"></i> Mascotas permitidas</p>';
+            }
+            else {
+                mostrarMascota = '<p class="text-danger"><i class="fa-solid fa-ban"></i> No se permiten mascotas</p>'
+            }
+
+            html = (`
+            <div class="card-container">
+                <div class="card">
+                    <h2>${itemsal.nombre[0]} </h2>
+                    <img src="${itemsal.src[0]}" alt="#">
+                    <li>${itemsal.descripcion[0]} </li>
+                    <li>${itemsal.ubicacion[0]} </li>
+                    <li>${itemsal.habitaciones[0]} Habitaciones | ${itemsal.baños[0]} baños </li>
+                    <li>${itemsal.costo[0]} </li>
+                    <li>${mostrarFumar} </li>
+                    <li>${mostrarMascota} </li>
+                </div>
+
+                <div class="card">
+                    <h2>${itemsal.nombre[1]} </h2>
+                    <img src="${itemsal.src[1]}" alt="#">
+                    <li>${itemsal.descripcion[1]} </li>
+                    <li>${itemsal.ubicacion[1]} </li>
+                    <li>${itemsal.habitaciones[1]} Habitaciones | ${itemsal.baños[1]} baños </li>
+                    <li>${itemsal.costo[1]} </li>
+                    <li>${mostrarFumar} </li>
+                    <li>${mostrarMascota} </li>
+                </div>
+
+                <div class="card">
+                    <h2>${itemsal.nombre[2]} </h2>
+                    <img src="${itemsal.src[2]}" alt="#">
+                    <li>${itemsal.descripcion[2]} </li>
+                    <li>${itemsal.ubicacion[2]} </li>
+                    <li>${itemsal.habitaciones[2]} Habitaciones | ${itemsal.baños[2]} baños </li>
+                    <li>${itemsal.costo[2]} </li>
+                    <li>${mostrarFumar} </li>
+                    <li>${mostrarMascota} </li>
+                </div>
+
+                <div class="card">
+                    <h2>${itemsal.nombre[0]} </h2>
+                    <img src="${itemsal.src[1]}" alt="#">
+                    <li>${itemsal.descripcion[2]} </li>
+                    <li>${itemsal.ubicacion[0]} </li>
+                    <li>${itemsal.habitaciones[2]} Habitaciones | ${itemsal.baños[2]} baños </li>
+                    <li>${itemsal.costo[2]} </li>
+                    <li>${mostrarFumar} </li>
+                    <li>${mostrarMascota} </li>
+                </div>
+                
+            </div>
+            `);
+            propalquiler.innerHTML = html
+
+        }
+
+    </script>
+</body>
+</html>
